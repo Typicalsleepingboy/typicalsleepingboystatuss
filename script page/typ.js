@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'Web Igracias Telkom ', url: 'https://igracias.telkomuniversity.ac.id/' },
     { name: 'Web Smk Telkom Mks ', url: 'https://smktelkom-mks.sch.id/' },
     { name: 'Github ', url: 'https://github.com' },
+    { name: 'Showroom Jkt48 ', url: 'https://dc.crstlnz.my.id/' },
+    { name: 'Web Jkt48 ', url: 'https://jkt48.com/' },
     // Tambahkan situs web lainnya sesuai kebutuhan
   ];
 
