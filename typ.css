@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,800&display=swap");
+
+body {
+  /* Existing styles */
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #e5e5e6;
+  background-color: #0f121a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Add animation for skeleton loading effect */
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: -100% 50%;
+  }
+}
+
+.overall-status,
+.container,
+.website {
+  animation: skeleton-loading 2s infinite linear;
+  background: linear-gradient(90deg, #191c24 25%, #21242d 50%, #191c24 75%);
+  background-size: 400% 100%;
+}
+
+.overall-status {
+  width: 75%;
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  width: 85%;
+  max-width: 800px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.website {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.online {
+  color: #14bb84;
+}
+
+.offline {
+  color: #fc7474;
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #888;
+}
+
+/* Media Query for screens smaller than 600 pixels */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .website {
+    padding: 8px;
+  }
+
+  h1 {
+    font-size: 24px; /* Adjust the font size for smaller screens */
+  }
+
+  .overall-status {
+    max-width: 100%; /* Make the overall status container full width */
+  }
+}
