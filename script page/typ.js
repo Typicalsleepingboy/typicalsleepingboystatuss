@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const websites = [
     { name: 'Telco 07 web ', url: 'https://telco4507web.vercel.app/' },
     { name: 'Typicalsleepingboy Web ', url: 'https://typicalsleepingboy.vercel.app/' },
-    { name: 'Typicalsleepingboy Status ', url: 'https://typicalsleepingboystatus.vercel.app/' },
+    { name: 'Typicalsleepingboy Status ', url: 'https://typicalsleepingboystatuss.vercel.app/' },
     { name: 'LMS Telkom University ', url: 'https://lms.telkomuniversity.ac.id/' },
-    { name: 'Web Igracias Telkom University ', url: 'https://igracias.telkomuniversity.ac.id/' },
+    { name: 'Web Igracias Telkom ', url: 'https://igracias.telkomuniversity.ac.id/' },
     { name: 'Web Smk Telkom Mks ', url: 'https://smktelkom-mks.sch.id/' },
     { name: 'Github ', url: 'https://github.com' },
     // Tambahkan situs web lainnya sesuai kebutuhan
