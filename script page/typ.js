@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'Github ', url: 'https://github.com' },
     { name: 'Showroom Jkt48 ', url: 'https://dc.crstlnz.my.id/' },
     { name: 'Web Jkt48 ', url: 'https://jkt48.com/' },
-     name: 'Web Idn lIVE ', url: ' https://www.idn.app/' },
+    {name: 'Web Idn lIVE ', url: ' https://www.idn.app/' },
    
     // Tambahkan situs web lainnya sesuai kebutuhan
   ];
