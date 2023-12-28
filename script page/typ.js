@@ -9,8 +9,12 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'LMS Telkom University ', url: 'https://lms.telkomuniversity.ac.id/' },
     { name: 'Web Igracias Telkom ', url: 'https://igracias.telkomuniversity.ac.id/' },
     { name: 'Web Smk Telkom Mks ', url: 'https://smktelkom-mks.sch.id/' },
-    { name: 'Github ', url: 'https://github.com' },
-    // Tambahkan situs web lainnya sesuai kebutuhan
+    { name: 'Web JKT48 ', url: 'https://jkt48.com' },
+    { name: 'Web Showroom JKT48 ', url: 'https://dc.crstlnz.my.id/' },
+    { name: 'Web IDN Live ', url: 'https://www.idn.app/' },
+    { name: 'Typ API ', url: 'https://midtrans.com/' },
+    { name: 'Monggo DB ', url: 'https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/' },
+    { name: 'Monggo DB status ', url: 'https://status.mongodb.com/' },
   ];
 
   const delayBetweenRequests = 2000;
