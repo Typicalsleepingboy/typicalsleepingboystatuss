@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Update overall status card
-    overallStatus.textContent = allWebsitesOnline ? 'All services are online 🟢' : 'At least one service is down 🔴';
+    overallStatus.textContent = allWebsitesOnline ? 'Semua Website Aktif 🟢' : 'Ada salah satu website yang down 🔴';
     overallStatus.className = allWebsitesOnline ? 'overall-status online' : 'overall-status offline';
   }
 
