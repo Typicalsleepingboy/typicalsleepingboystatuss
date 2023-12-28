@@ -74,6 +74,22 @@ footer {
   color: #888;
 }
 
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+  color: #ffffff;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: #252525;
+}
+
 /* Media Query for screens smaller than 600 pixels */
 @media (max-width: 600px) {
   .container {
