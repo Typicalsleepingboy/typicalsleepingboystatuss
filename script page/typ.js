@@ -1,45 +1,65 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const websiteList = document.getElementById('websiteList');
-  const overallStatus = document.getElementById('overallStatus');
-  const weatherInfo = document.getElementById('weatherInfo');
+document.addEventListener("DOMContentLoaded", function () {
+  const websiteList = document.getElementById("websiteList");
+  const overallStatus = document.getElementById("overallStatus");
+  const weatherInfo = document.getElementById("weatherInfo");
 
-
-
-  const discordWebhookUrl = 'https://discord.com/api/webhooks/1169690186188329062/wedbSk-slQN_TIgN2DKa2dcLMll6d_8QVs_z3SNaXT8co-ryHTWkcrTrLYjl0tbYbXKY';
+  // API FILE//
+  const discordWebhookUrl =
+    "https://discord.com/api/webhooks/1169690186188329062/wedbSk-slQN_TIgN2DKa2dcLMll6d_8QVs_z3SNaXT8co-ryHTWkcrTrLYjl0tbYbXKY";
+  // API FILE//
 
   const websites = [
-    { name: 'Telco 07 web ', url: 'https://telco4507web.vercel.app/' },
-    { name: 'Typicalsleepingboy Web ', url: 'https://typicalsleepingboy.vercel.app/' },
-    { name: 'Typicalsleepingboy Status ', url: 'https://typicalsleepingboystatuss.vercel.app/' },
-    { name: 'LMS Telkom University ', url: 'https://lms.telkomuniversity.ac.id/' },
-    { name: 'Web Igracias Telkom ', url: 'https://igracias.telkomuniversity.ac.id/' },
-    { name: 'Web Smk Telkom Mks ', url: 'https://smktelkom-mks.sch.id/' },
-    { name: 'Web JKT48 ', url: 'https://jkt48.com' },
-    { name: 'Web Showroom JKT48 ', url: 'https://dc.crstlnz.my.id/' },
-    { name: 'Web IDN Live ', url: 'https://www.idn.app/' },
-    { name: 'Typ API ', url: 'https://midtrans.com/' },
-    { name: 'Monggo DB ', url: 'https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/' },
-    { name: 'Monggo DB status ', url: 'https://status.mongodb.com/' },
-    { name: 'Weather Api ', url: 'https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392'},
+    { name: "Telco 07 web ", url: "https://telco4507web.vercel.app/" },
+    {
+      name: "Typicalsleepingboy Web ",
+      url: "https://typicalsleepingboy.vercel.app/",
+    },
+    {
+      name: "Typicalsleepingboy Status ",
+      url: "https://typicalsleepingboystatuss.vercel.app/",
+    },
+    {
+      name: "LMS Telkom University ",
+      url: "https://lms.telkomuniversity.ac.id/",
+    },
+    {
+      name: "Web Igracias Telkom ",
+      url: "https://igracias.telkomuniversity.ac.id/",
+    },
+    { name: "Web Smk Telkom Mks ", url: "https://smktelkom-mks.sch.id/" },
+    { name: "Web JKT48 ", url: "https://jkt48.com" },
+    { name: "Web Showroom JKT48 ", url: "https://dc.crstlnz.my.id/" },
+    { name: "Web IDN Live ", url: "https://www.idn.app/" },
+    { name: "Typ API ", url: "https://midtrans.com/" },
+    {
+      name: "Monggo DB ",
+      url: "https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/",
+    },
+    { name: "Monggo DB status ", url: "https://status.mongodb.com/" },
+    {
+      name: "Weather Api ",
+      url: "https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392",
+    },
   ];
 
-    // SCRIPT UNTUK WEBSITENYA//
+  // SCRIPT UNTUK WEBSITENYA//
 
   const delayBetweenRequests = 2000;
   let allWebsitesOnline = true;
 
   async function doCORSRequest(url) {
     try {
-      const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`);
+      const response = await fetch(
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+      );
       return response.ok;
     } catch (error) {
-      console.error('Error checking website status:', error);
+      console.error("Error checking website status:", error);
       return false;
     }
   }
 
-
-    // SCRIPT UNTUK KIRIM NOTIFIKASI DISCORD/
+  // SCRIPT UNTUK KIRIM NOTIFIKASI DISCORD/
 
   async function sendDiscordNotification(title, description, color) {
     const payload = {
@@ -49,33 +69,34 @@ document.addEventListener('DOMContentLoaded', function () {
           description,
           color,
           footer: {
-            text: 'Powered by ♥️ Typicalsleepingboy',
+            text: "Powered by ♥️ Typicalsleepingboy",
           },
         },
       ],
     };
-  
 
     try {
       const response = await fetch(discordWebhookUrl, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
-        throw new Error(`Gagal mengirim notifikasi ke discord: ${response.status}`);
+        throw new Error(
+          `Gagal mengirim notifikasi ke discord: ${response.status}`
+        );
       }
     } catch (error) {
-      console.error('Error mengirim notifikasi ke discord:', error);
+      console.error("Error mengirim notifikasi ke discord:", error);
     }
   }
 
   async function updateStatus(websiteName, isOnline) {
-    const websiteElement = document.createElement('div');
-    websiteElement.className = 'website';
+    const websiteElement = document.createElement("div");
+    websiteElement.className = "website";
 
     if (isOnline) {
       websiteElement.innerHTML = `<strong>${websiteName}:</strong> <span class="online">Online 🟢</span>`;
@@ -103,39 +124,55 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   async function checkAllWebsites() {
-    websiteList.innerHTML = '';
+    websiteList.innerHTML = "";
 
     for (const website of websites) {
       const isOnline = await doCORSRequest(website.url);
       updateStatus(website.name, isOnline);
-      await new Promise(resolve => setTimeout(resolve, delayBetweenRequests));
+      await new Promise((resolve) => setTimeout(resolve, delayBetweenRequests));
     }
 
     overallStatus.textContent = allWebsitesOnline
-      ? 'Semua Website Sedang Aktif 🟢'
-      : 'Ada salah satu website yang down 🔴';
-    overallStatus.className = allWebsitesOnline ? 'overall-status online' : 'overall-status offline';
+      ? "Semua Website Sedang Aktif 🟢"
+      : "Ada salah satu website yang down 🔴";
+    overallStatus.className = allWebsitesOnline
+      ? "overall-status online"
+      : "overall-status offline";
   }
-
 
   // SCRIPT UNTUK API WEATHER//
 
   async function fetchWeather() {
-    const apiKey = '567f7e49b5b7c272971e1b485921d392';
-    const locations = ['Lengkong', 'Dago', 'Makassar', 'Ciwidey', 'Bojongsoang'];
-    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+    const apiKey = "567f7e49b5b7c272971e1b485921d392";
+    const locations = [
+      "Lengkong",
+      "Dago",
+      "Makassar",
+      "Ciwidey",
+      "Bojongsoang",
+    ];
+    const randomLocation =
+      locations[Math.floor(Math.random() * locations.length)];
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${randomLocation}&appid=${apiKey}&units=metric`;
 
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error(`Data request tidak falid pada status: ${response.status}`);
+        throw new Error(
+          `Data request tidak falid pada status: ${response.status}`
+        );
       }
 
       const data = await response.json();
 
-      if (!data.main || !data.main.temp || !data.weather || !data.weather[0] || !data.weather[0].description) {
-        throw new Error('Format data tidak falid');
+      if (
+        !data.main ||
+        !data.main.temp ||
+        !data.weather ||
+        !data.weather[0] ||
+        !data.weather[0].description
+      ) {
+        throw new Error("Format data tidak falid");
       }
 
       const temperature = data.main.temp;
@@ -149,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <p1>NOTE : Data cuaca akan selalu di update setiap 7 detik</p1>
       `;
     } catch (error) {
-      console.error('Gagal mendapatkan data cuaca dari api', error);
+      console.error("Gagal mendapatkan data cuaca dari api", error);
     }
   }
 
@@ -164,17 +201,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   updateCard();
 
-    // SCRIPT UNTUK KLIK KANAN//
+  // SCRIPT UNTUK KLIK KANAN//
 
-  document.addEventListener('contextmenu', function (e) {
+  document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
-    alert("yaaa kamu pasti mau nyuri yaaa, kasihan tidak bisa🆘🥱🥱🥱🥱🥱🥱🆘 \n\n\n made by ♥️ Typicalsleepingboy");
+    alert(
+      "yaaa kamu pasti mau nyuri yaaa, kasihan tidak bisa🆘🥱🥱🥱🥱🥱🥱🆘 \n\n\n made by ♥️ Typicalsleepingboy"
+    );
   });
 
-  document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+  document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "i")) {
       e.preventDefault();
-      alert("yaaa kamu pasti mau nyuri yaaa, kasihan tidak bisa🆘🥱🥱🥱🥱🥱🥱🆘 \n\n\n made by ♥️ Typicalsleepingboy");
+      alert(
+        "yaaa kamu pasti mau nyuri yaaa, kasihan tidak bisa🆘🥱🥱🥱🥱🥱🥱🆘 \n\n\n made by ♥️ Typicalsleepingboy"
+      );
     }
   });
 });
