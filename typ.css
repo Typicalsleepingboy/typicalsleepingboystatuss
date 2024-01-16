@@ -8,7 +8,7 @@ body {
   background-color: #131a26;
   display: flex;
   flex-direction: column;
-  justify-content: fixed;
+  justify-content: fixed; /* Ini sepertinya typo, seharusnya 'flex-start' atau 'center' */
   align-items: center;
   min-height: 100vh;
 }
@@ -135,10 +135,28 @@ footer {
   }
 
   .overall-status {
-    max-width: 100%;
+    max-width: 95%;
   }
 
   .weather-info {
     max-width: 85%;
+  }
+
+  .twitter-container {
+    text-align: center;
+  }
+
+  .twitter-card {
+    padding: 10px;
+    margin: 0 auto; /* Menengahkan card secara horizontal */
+    max-width: 91%; /* Sesuaikan dengan kebutuhan Anda */
+  }
+
+  footer {
+    font-size: 14px;
+  }
+
+  .social-icons a {
+    font-size: 16px;
   }
 }
