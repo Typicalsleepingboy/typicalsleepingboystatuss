@@ -150,6 +150,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "Makassar",
       "Ciwidey",
       "Bojongsoang",
+      "London",
+      "Jakarta",
     ];
     const randomLocation = locations[Math.floor(Math.random() * locations.length)];
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${randomLocation}&appid=${apiKey}&units=metric&lang=id`;
