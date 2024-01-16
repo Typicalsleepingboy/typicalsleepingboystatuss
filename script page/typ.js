@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const weatherInfo = document.getElementById('weatherInfo');
 
 
+
   const discordWebhookUrl = 'https://discord.com/api/webhooks/1169690186188329062/wedbSk-slQN_TIgN2DKa2dcLMll6d_8QVs_z3SNaXT8co-ryHTWkcrTrLYjl0tbYbXKY';
 
   const websites = [
@@ -156,8 +157,12 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchWeather();
   }, 7000);
 
-  checkAllWebsites();
-  fetchWeather();
+  async function updateCard() {
+    checkAllWebsites();
+    fetchWeather();
+  }
+
+  updateCard();
 
     // SCRIPT UNTUK KLIK KANAN//
 
