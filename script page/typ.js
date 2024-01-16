@@ -128,13 +128,13 @@ document.addEventListener('DOMContentLoaded', function () {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error(`Weather data request failed with status: ${response.status}`);
+        throw new Error(`Data request tidak falid pada status: ${response.status}`);
       }
 
       const data = await response.json();
 
       if (!data.main || !data.main.temp || !data.weather || !data.weather[0] || !data.weather[0].description) {
-        throw new Error('Invalid weather data format');
+        throw new Error('Format data tidak falid');
       }
 
       const temperature = data.main.temp;
