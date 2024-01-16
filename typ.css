@@ -6,47 +6,30 @@ body {
   margin: 0;
   padding: 0;
   color: #e5e5e6;
-  background-color: #0f121a;
+  background-color: #131a26;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: fixed;
   align-items: center;
   min-height: 100vh;
 }
-
-/* Add animation for skeleton loading effect */
-@keyframes skeleton-loading {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: -100% 50%;
-  }
-}
-
-.overall-status,
-.container,
-.website {
-  animation: skeleton-loading 2s infinite linear;
-  background: linear-gradient(90deg, #191c24 25%, #21242d 50%, #191c24 75%);
-  background-size: 400% 100%;
-}
-
 .overall-status {
-  width: 90%;
-  max-width: 320px;
+  width: 89%;
+  max-width: 308px;
   text-align: center;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 8px;
+  background-color: #212937;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .container {
-  width: 95%;
+  width: 75%;
   max-width: 890px;
   padding: 20px;
   border-radius: 10px;
+  background-color: #212937;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -82,7 +65,7 @@ footer {
   display: inline-block;
   margin-right: 10px;
   font-size: 20px;
-  color: #ffffff;
+  color: #888;
   transition: color 0.3s ease-in-out;
 }
 
@@ -91,7 +74,7 @@ footer {
 }
 
 .weather-info {
-  background-color: #191c24;
+  background-color: #212937;
   border: 1px;
   border-radius: 8px;
   padding: 20px;
