@@ -19,8 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
     { name: 'Typ API ', url: 'https://midtrans.com/' },
     { name: 'Monggo DB ', url: 'https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/' },
     { name: 'Monggo DB status ', url: 'https://status.mongodb.com/' },
-    { name: 'Weather Api ', url: 'https://api.openweathermap.org/data/2.5/weather?q/'},
+    { name: 'Weather Api ', url: 'https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392'},
   ];
+
+    // SCRIPT UNTUK WEBSITENYA//
 
   const delayBetweenRequests = 2000;
   let allWebsitesOnline = true;
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
   }
+
+
+    // SCRIPT UNTUK KIRIM NOTIFIKASI DISCORD/
 
   async function sendDiscordNotification(title, description, color) {
     const payload = {
@@ -111,6 +116,9 @@ document.addEventListener('DOMContentLoaded', function () {
     overallStatus.className = allWebsitesOnline ? 'overall-status online' : 'overall-status offline';
   }
 
+
+  // SCRIPT UNTUK API WEATHER//
+
   async function fetchWeather() {
     const apiKey = '567f7e49b5b7c272971e1b485921d392';
     const locations = ['Lengkong', 'Dago', 'Makassar', 'Ciwidey', 'Bojongsoang'];
@@ -150,6 +158,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   checkAllWebsites();
   fetchWeather();
+
+    // SCRIPT UNTUK KLIK KANAN//
 
   document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
