@@ -151,33 +151,24 @@ document.addEventListener("DOMContentLoaded", function () {
       "Ciwidey",
       "Bojongsoang",
     ];
-    const randomLocation =
-      locations[Math.floor(Math.random() * locations.length)];
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${randomLocation}&appid=${apiKey}&units=metric`;
-
+    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${randomLocation}&appid=${apiKey}&units=metric&lang=id`;
+  
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-        throw new Error(
-          `Data request tidak falid pada status: ${response.status}`
-        );
+        throw new Error(`Data request tidak falid pada status: ${response.status}`);
       }
-
+  
       const data = await response.json();
-
-      if (
-        !data.main ||
-        !data.main.temp ||
-        !data.weather ||
-        !data.weather[0] ||
-        !data.weather[0].description
-      ) {
+  
+      if (!data.main || !data.main.temp || !data.weather || !data.weather[0] || !data.weather[0].description) {
         throw new Error("Format data tidak falid");
       }
-
+  
       const temperature = data.main.temp;
       const description = data.weather[0].description;
-
+  
       // Update weatherInfo innerHTML to include the title, location, and weather details
       weatherInfo.innerHTML = `
         <h2>Informasi cuaca ☁️</h2>
