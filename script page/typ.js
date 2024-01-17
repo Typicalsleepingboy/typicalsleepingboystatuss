@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const websiteList = document.getElementById("websiteList");
   const overallStatus = document.getElementById("overallStatus");
+  
 
   const websites = [
     { name: "Telco 07 web ", url: "https://telco4507web.vercel.app/" },

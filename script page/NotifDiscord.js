@@ -1,7 +1,7 @@
 
- // API FILE//
- const discordWebhookUrl ="https://discord.com/api/webhooks/1197047484783001734/Yu8cqwlNwdfsKJWnEikZJg_7XGGcahu1-tpNa4vUrwH2koD9qx8f444MdIhgIpDhR3Mq";
- // API FILE//
+// API FILE//
+const discordWebhookUrl = "https://discord.com/api/webhooks/1197047484783001734/Yu8cqwlNwdfsKJWnEikZJg_7XGGcahu1-tpNa4vUrwH2koD9qx8f444MdIhgIpDhR3Mq";
+// API FILE//
 
 function getStoredStatus(websiteName) {
     const storedStatus = localStorage.getItem(`status_${websiteName}`);
