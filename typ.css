@@ -172,6 +172,10 @@ footer {
     margin: 3%; 
     width: 90%; 
   }
+  .instagram-card h2 {
+    text-align: center;
+
+  }
 
   footer {
     font-size: 14px;
