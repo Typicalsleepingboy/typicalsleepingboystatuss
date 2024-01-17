@@ -121,9 +121,9 @@ const weatherScript = document.createElement("script");
 weatherScript.src = "/script page/WeatherApi.js";
 document.head.appendChild(weatherScript);
 
-const dontuseScript = document.createElement("script");
-dontuseScript.src = "/path/to/dontuse.js";
-document.head.appendChild(dontuseScript);
+const DontuseScript = document.createElement("script");
+DontuseScript.src = "/script page/dontuse.js";
+document.head.appendChild(DontuseScript);
 
 
 
