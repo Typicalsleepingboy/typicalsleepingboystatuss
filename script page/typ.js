@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     { name: "Typicalsleepingboy Status ",url: "https://typicalsleepingboystatuss.vercel.app/",},
     { name: "LMS Telkom University ",url: "https://lms.telkomuniversity.ac.id/",},
     { name: "Web Igracias Telkom ",url: "https://igracias.telkomuniversity.ac.id/",},
-    { name: "Web Smk Telkom Mks ", url: "https://smktelkom-mks.sch.id/" },
+    { name: "Web Smk Telkom Mks ", url: "httpsss:///smktelkom-mks.sch.id/" },
     { name: "Web JKT48 ", url: "https://jkt48.com" },
     { name: "Web Showroom JKT48 ", url: "https://dc.crstlnz.my.id/" },
     { name: "Web IDN Live ", url: "https://www.idn.app/" },
