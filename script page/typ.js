@@ -4,47 +4,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const weatherInfo = document.getElementById("weatherInfo");
 
   // API FILE//
-  const discordWebhookUrl =
-    "https://discord.com/api/webhooks/1169690186188329062/wedbSk-slQN_TIgN2DKa2dcLMll6d_8QVs_z3SNaXT8co-ryHTWkcrTrLYjl0tbYbXKY";
+  const discordWebhookUrl ="https://discord.com/api/webhooks/1197047484783001734/Yu8cqwlNwdfsKJWnEikZJg_7XGGcahu1-tpNa4vUrwH2koD9qx8f444MdIhgIpDhR3Mq";
   // API FILE//
 
   const websites = [
     { name: "Telco 07 web ", url: "https://telco4507web.vercel.app/" },
-    {
-      name: "Typicalsleepingboy Web ",
-      url: "https://typicalsleepingboy.vercel.app/",
-    },
-    {
-      name: "Typicalsleepingboy Status ",
-      url: "https://typicalsleepingboystatuss.vercel.app/",
-    },
-    {
-      name: "LMS Telkom University ",
-      url: "https://lms.telkomuniversity.ac.id/",
-    },
-    {
-      name: "Web Igracias Telkom ",
-      url: "https://igracias.telkomuniversity.ac.id/",
-    },
+    { name: "Typicalsleepingboy Web ",url: "https://typicalsleepingboy.vercel.app/",},
+    { name: "Typicalsleepingboy Status ",url: "https://typicalsleepingboystatuss.vercel.app/",},
+    { name: "LMS Telkom University ",url: "https://lms.telkomuniversity.ac.id/",},
+    { name: "Web Igracias Telkom ",url: "https://igracias.telkomuniversity.ac.id/",},
     { name: "Web Smk Telkom Mks ", url: "https://smktelkom-mks.sch.id/" },
     { name: "Web JKT48 ", url: "https://jkt48.com" },
     { name: "Web Showroom JKT48 ", url: "https://dc.crstlnz.my.id/" },
     { name: "Web IDN Live ", url: "https://www.idn.app/" },
     { name: "Typ API ", url: "https://midtrans.com/" },
-    {
-      name: "Monggo DB ",
-      url: "https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/",
-    },
+    { name: "Monggo DB ",url: "https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/",},
     { name: "Monggo DB status ", url: "https://status.mongodb.com/" },
-    {
-      name: "Weather Api ",
-      url: "https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392",
-    },
+    { name: "Weather Api ",url: "https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392",},
   ];
 
   // SCRIPT UNTUK WEBSITENYA//
 
-  const delayBetweenRequests = 2000;
+
   let allWebsitesOnline = true;
 
   async function doCORSRequest(url) {
@@ -60,6 +41,27 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // SCRIPT UNTUK KIRIM NOTIFIKASI DISCORD/
+
+  function getStoredStatus(websiteName) {
+    const storedStatus = localStorage.getItem(`status_${websiteName}`);
+    return storedStatus === "true";
+  }
+
+  function setStoredStatus(websiteName, status) {
+    localStorage.setItem(`status_${websiteName}`, status);
+  }
+
+  async function doCORSRequest(url) {
+    try {
+      const response = await fetch(
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`
+      );
+      return response.ok;
+    } catch (error) {
+      console.error("Error checking website status:", error);
+      return false;
+    }
+  }
 
   async function sendDiscordNotification(title, description, color) {
     const payload = {
@@ -100,23 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (isOnline) {
       websiteElement.innerHTML = `<strong>${websiteName}:</strong> <span class="online">Online 🟢</span>`;
-
-      // Send Discord notification when a website is back online
-      if (!allWebsitesOnline) {
-        const onlineTitle = `Website Back Online: ${websiteName} 🟢`;
-        const onlineDescription = `Website ${websiteName} is now back online. Good news!`;
-        const onlineColor = 0x00ff00; // Green color for online status
-        sendDiscordNotification(onlineTitle, onlineDescription, onlineColor);
-      }
     } else {
-      allWebsitesOnline = false;
-
-      // Send Discord notification when a website is down
-      const downTitle = `Website Down: ${websiteName} 🔴`;
-      const downDescription = `Website ${websiteName} is currently down. We will fix it soon.`;
-      const downColor = 0xff5733; // Orange color for down status
-      sendDiscordNotification(downTitle, downDescription, downColor);
-
       websiteElement.innerHTML = `<strong>${websiteName}:</strong> <span class="offline">Offline 🔴</span>`;
     }
 
@@ -128,9 +114,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     for (const website of websites) {
       const isOnline = await doCORSRequest(website.url);
+      const storedStatus = getStoredStatus(website.name);
+
+      if (isOnline !== storedStatus) {
+        const statusTitle = isOnline
+          ? `Website Back Online: ${website.name} 🟢`
+          : `Website Down: ${website.name} 🔴`;
+        const statusDescription = isOnline
+          ? `Website ${website.name} is now back online. Good news!`
+          : `Website ${website.name} is currently down. We will fix it soon.`;
+        const statusColor = isOnline ? 0x00ff00 : 0xff5733;
+
+        sendDiscordNotification(statusTitle, statusDescription, statusColor);
+      }
+
       updateStatus(website.name, isOnline);
-      await new Promise((resolve) => setTimeout(resolve, delayBetweenRequests));
+      setStoredStatus(website.name, isOnline);
     }
+
+    const allWebsitesOnline = websites.every((website) => getStoredStatus(website.name));
 
     overallStatus.textContent = allWebsitesOnline
       ? "Semua Website Sedang Aktif 🟢"
@@ -139,6 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
       ? "overall-status online"
       : "overall-status offline";
   }
+
 
   // SCRIPT UNTUK API WEATHER//
 
@@ -155,22 +158,22 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
     const randomLocation = locations[Math.floor(Math.random() * locations.length)];
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${randomLocation}&appid=${apiKey}&units=metric&lang=id`;
-  
+
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error(`Data request tidak falid pada status: ${response.status}`);
       }
-  
+
       const data = await response.json();
-  
+
       if (!data.main || !data.main.temp || !data.weather || !data.weather[0] || !data.weather[0].description) {
         throw new Error("Format data tidak falid");
       }
-  
+
       const temperature = data.main.temp;
       const description = data.weather[0].description;
-  
+
       // Update weatherInfo innerHTML to include the title, location, and weather details
       weatherInfo.innerHTML = `
         <h2>Informasi cuaca ☁️</h2>
@@ -193,6 +196,44 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateCard();
+  setInterval(updateCard, 200000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // SCRIPT UNTUK KLIK KANAN//
 
