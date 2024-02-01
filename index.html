@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>#Typicalsleepingboy - Status</title>
-    <link rel="stylesheet" href="typ.css" />
-    <link rel="icon" href="/image/myLogo.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-  </head>
 
-  <body>
-    <h1>Typicalsleepingboy Status</h1>
-    <div id="overallStatus" class="overall-status"></div>
-    <div class="container">
-      <div id="websiteList"></div>
-      <p>
-        NOTE : Data akan update terus ketika ada website yang offline atau
-        online maka data tersebut akan dikirim ke discord
-        https://discord.gg/xs4w3fDDfw
-      </p>
-    </div>
-    <div id="weatherInfo" class="weather-info"></div>
-    <div class="twitter-container">
-      <div class="twitter-card">
-        <h2>Latest Tweets Sheng gue CinderEllak</h2>
-        <a
-          class="twitter-timeline"
-          data-theme="light"
-          data-height="650"
-          href="https://twitter.com/AM_EllaJKT48"
-        ></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#Typicalsleepingboy - Status</title>
+  <link rel="stylesheet" href="typical.css" />
+  <link rel="icon" href="/image/myLogo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body>
+  <div class="main">
+    <div class="content">
+      <h1 class="typing-effect">#TYPICALSLEEPINGBOY STATUS</h1>
+      <p>based on a boy who often sleeps</p>
+      <div id="overallStatus" class="overall-status"></div>
+      <div id="containerPage" class="container">
+        <div id="websiteList"></div>
+        <p>
+          NOTE: Data akan terus diupdate ketika ada website yang offline atau online, dan data tersebut akan dikirim ke
+          Discord
+          <a style="text-decoration:none" href="https://discord.gg/YRQ8jRRh"> https://discord.gg/YRQ8jRRh </a>
+        </p>
       </div>
     </div>
-    <div class="instagram-card">
-      <h2>Latest Instagram Posts Sheng gue CinderEllak</h2>
-      <div
-        class="elfsight-app-777a6dde-9531-4b88-b672-aeaf0ca829b0"
-        data-elfsight-app-lazy
-      ></div>
+    <div class="side-panel">
+      <div id="weatherPage" class="weather-info">
+      </div>
+      <div class="event-container">
+        <h2>Info Theater JKT48</h2>
+        <div id="eventInfo" class="event-info">
+        </div>
+      </div>
     </div>
+    </br>
+    <div class="news-container">
+      <h2>News Info JKT48</h2>
+      <ul id="newsList"></ul>
+      <div id="pagination">
+        <button id="prevPageBtn" onclick="changePage(-1)" disabled>Previous Page</button>
+        <span>Page <span id="currentPage">1</span></span>
+        <button id="nextPageBtn" onclick="changePage(1)">Next Page</button>
+      </div>
+    </div>
+    </br></br>
     <footer>
-      Powered by ♥️ Typicalsleepingboy
+      Powered by ♥️ <a style="text-decoration:none" href="https://twitter.com/Typicalsleeping"> Typicalsleepingboy </a>
       <div class="social-icons">
         <p>Lets Connect With Me</p>
-        <a
-          href="https://www.linkedin.com/in/andimuhnaufaldzaky/"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><i class="fab fa-linkedin"></i
-        ></a>
-        <a
-          href="https://github.com/Typicalsleepingboy"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><i class="fab fa-github"></i
-        ></a>
+        <a href="https://www.linkedin.com/in/andimuhnaufaldzaky/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/Typicalsleeping" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
+        <a href="https://github.com/Typicalsleepingboy" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
       </div>
+      </br>
     </footer>
     <script src="/script page/typ.js"></script>
     <script src="/script page/NotifDiscord.js"></script>
+    <script src="/script page/Dontuse.js"></script>
+    <script src="/script page/WeatherApi.js"></script>
+    <script src="/script page/News.js"></script>
     <script src="/server/server.js"></script>
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    ></script>
-    <script
-      src="https://static.elfsight.com/platform/platform.js"
-      data-use-service-core
-      defer
-    ></script>
-  </body>
+    <script src="/script page/event.js"></script>
+    <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+    <!-- <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script> -->
+</body>
+
 </html>

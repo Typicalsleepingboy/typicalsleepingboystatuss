@@ -5,36 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const websites = [
     { name: "Telco 07 web ", url: "https://telco4507web.vercel.app/" },
-    {
-      name: "Typicalsleepingboy Web ",
-      url: "https://typicalsleepingboy.vercel.app/",
-    },
-    {
-      name: "Typicalsleepingboy Status ",
-      url: "https://typicalsleepingboystatuss.vercel.app/",
-    },
-    {
-      name: "LMS Telkom University ",
-      url: "https://lms.telkomuniversity.ac.id/",
-    },
-    {
-      name: "Web Igracias Telkom ",
-      url: "https://igracias.telkomuniversity.ac.id/",
-    },
-    { name: "Web Smk Telkom Mks ", url: "https://smktelkom-mks.sch.id/" },
+    { name: "Typicalsleepingboy Status ",url: "https://typicalsleepingboystatuss.vercel.app/",},
+    { name: "LMS Telkom University ",url: "https://lms.telkomuniversity.ac.id/",},
+    { name: "Web Igracias Telkom ",url: "https://igracias.telkomuniversity.ac.id/",},
     { name: "Web JKT48 ", url: "https://jkt48.com" },
-    { name: "Web Showroom JKT48 ", url: "https://dc.crstlnz.my.id/" },
+    { name: "Web Showroom crstlnz ", url: "https://dc.crstlnz.my.id/" },
     { name: "Web IDN Live ", url: "https://www.idn.app/" },
-    { name: "Typ API ", url: "https://midtrans.com/" },
-    {
-      name: "Monggo DB ",
-      url: "https://cloud.mongodb.com/v2#/org/629c5b7d3b7f3f4171b4cee4/",
-    },
-    { name: "Monggo DB status ", url: "https://status.mongodb.com/" },
-    {
-      name: "Weather Api ",
-      url: "https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392",
-    },
+    { name: "News API ", url: "https://api.crstlnz.my.id/api/news" },
+    { name: "Monggo DB Api ", url: "https://status.mongodb.com/" },
+    { name: "Weather Api ",url: "https://api.openweathermap.org/data/2.5/weather?q=567f7e49b5b7c272971e1b485921d392",},
   ];
 
   // SCRIPT UNTUK WEBSITENYA//
